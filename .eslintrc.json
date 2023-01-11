@@ -14,7 +14,7 @@
         "react/jssx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "no-use-before-define": ["error", { "variables": false }],
         "react/style-prop-object": false,
-        "react/props-types": ["error", { "ignore": ["navigation", "navigation.navigate"] }]
+        "react/prop-types": ["error", { "ignore": ["navigation", "navigation.navigate"] }]
     }
 }
 
