@@ -6,21 +6,12 @@ import CheckmarkIcon from '../../assets/icons/Checkmark';
 // Constants
 import { COLORS } from '../../constants/colors';
 
-export const CheckCircle = ({ initialCheckStatus = false, onPress }) => {
-    const [isChecked, setIsChecked] = useState(initialCheckStatus);
-
-    const handlePress = () => {
-        if (typeof onPress === 'function') {
-            onPress(!isChecked); // Callsback the passed function and passes the status as a parameter
-        }
-        setIsChecked((isChecked) => !isChecked); // Toggles the
-    };
-
+export const CheckCircle = ({ checkStatus, onPress }) => {
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => handlePress()} hitSlop={{ top: 12, bottom: 12, left: 12, right: 12 }}>
-                {isChecked && <CheckmarkIcon color={COLORS.label.secondary} />}
-                {!isChecked && <View style={styles.circleBorder} />}
+            <TouchableOpacity onPress={() => onPress()} hitSlop={{ top: 12, bottom: 12, left: 12, right: 12 }}>
+                {checkStatus && <CheckmarkIcon color={COLORS.label.secondary} />}
+                {!checkStatus && <View style={styles.circleBorder} />}
             </TouchableOpacity>
         </View>
     );
