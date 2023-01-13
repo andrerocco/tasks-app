@@ -1,11 +1,18 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+//Colors
+import { COLORS } from './src/constants/colors.js';
+// Components
+import { LabelledCheckButton } from './src/components/LabelledCheckButton/index.jsx';
+import { CircularProgressChart } from './src/components/CircularProgressChart/index.jsx';
 
 export default function App() {
     return (
         <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
+            <LabelledCheckButton>
+                Texto testando com um texto muito maior que é para quebrar quando chegar no canto
+            </LabelledCheckButton>
             <StatusBar style="auto" />
         </View>
     );
@@ -14,7 +21,7 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: COLORS.systemBackground.primary,
         alignItems: 'center',
         justifyContent: 'center',
     },

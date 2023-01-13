@@ -21,7 +21,13 @@ export const LabelledCheckButton = ({ children, initalCheckedStatus = false }) =
             <CheckCircle checkStatus={isChecked} onPress={() => handleCheckPress()} />
             <View style={styles.textContainer}>
                 <Text style={isChecked ? styles.label.default : styles.label.dimmed}>{children}</Text>
-                <CheckButtonSublabel dimmedStatus={isChecked} style={{ marginTop: 4 }} />
+                <CheckButtonSublabel
+                    dimmedStatus={isChecked}
+                    subtext="Sexta, 10/12"
+                    stepsCompleted={1}
+                    stepsTotal={3}
+                    style={{ marginTop: 4 }}
+                />
             </View>
         </View>
     );
