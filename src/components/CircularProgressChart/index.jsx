@@ -37,6 +37,6 @@ CircularProgressChart.propTypes = {
     progress: P.number.isRequired,
     diameter: P.number.isRequired,
     strokeWidth: P.number.isRequired,
-    emptyColor: P.string,
-    progressColor: P.string,
+    emptyColor: P.oneOfType([P.string, P.object]),
+    progressColor: P.oneOfType([P.string, P.object]),
 };
