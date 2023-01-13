@@ -9,6 +9,8 @@ export const CircularProgressChart = ({
     emptyColor = '#AEAEAE',
     progressColor = '#5E5E5E',
 }) => {
+    const circumference = Math.PI * (diameter - strokeWidth);
+
     return (
         <Svg width={diameter} height={diameter} fill="none" xmlns="http://www.w3.org/2000/svg">
             <Circle
@@ -25,7 +27,7 @@ export const CircularProgressChart = ({
                 transform={`rotate(-90 ${diameter / 2} ${diameter / 2})`}
                 strokeWidth={strokeWidth}
                 stroke={progressColor}
-                strokeDasharray={`${parseInt(progress * 100)} 100`}
+                strokeDasharray={[progress * circumference, circumference]}
             />
         </Svg>
     );
