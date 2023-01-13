@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import P from 'prop-types';
 // Components
-import { CircularProgressChart } from '../CircularProgressChart';
+import { CircularProgressChart } from '../../CircularProgressChart/CircularProgressChart.jsx';
 
-export const ProgressLabel = ({
+export const ProgressDisplay = ({
     stepsCompleted,
     stepsTotal,
     diameter,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     },
 });
 
-ProgressLabel.propTypes = {
+ProgressDisplay.propTypes = {
     stepsCompleted: P.number.isRequired,
     stepsTotal: P.number.isRequired,
     diameter: P.number.isRequired,

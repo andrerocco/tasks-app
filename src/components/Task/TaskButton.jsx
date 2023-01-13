@@ -3,13 +3,13 @@ import { StyleSheet, View, Text } from 'react-native';
 import P from 'prop-types';
 // Styles
 import { LABEL } from '../../styles/styles.js';
-// Components
-import { CheckCircle } from '../CheckCircle/index.jsx';
 // Constants
 import { COLORS } from '../../constants/colors.js';
-import { CheckButtonSublabel } from '../CheckButtonSublabel/index.jsx';
+// Components
+import { CheckCircle } from './CheckCircle/CheckCircle.jsx';
+import { TaskSublabel } from './TaskSublabel/TaskSublabel.jsx';
 
-export const LabelledCheckButton = ({ children, initalCheckedStatus = false }) => {
+export const TaskButton = ({ children, initalCheckedStatus = false }) => {
     const [isChecked, setIsChecked] = useState(initalCheckedStatus);
 
     function handleCheckPress() {
@@ -21,7 +21,7 @@ export const LabelledCheckButton = ({ children, initalCheckedStatus = false }) =
             <CheckCircle checkStatus={isChecked} onPress={() => handleCheckPress()} />
             <View style={styles.textContainer}>
                 <Text style={isChecked ? styles.label.default : styles.label.dimmed}>{children}</Text>
-                <CheckButtonSublabel
+                <TaskSublabel
                     dimmedStatus={isChecked}
                     subtext="Sexta, 10/12"
                     stepsCompleted={1}
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     },
 });
 
-LabelledCheckButton.propTypes = {
+TaskButton.propTypes = {
     children: P.oneOfType([P.string, P.element, P.node]),
     checkedStatus: P.bool,
 };

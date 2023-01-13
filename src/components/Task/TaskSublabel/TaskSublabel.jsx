@@ -2,13 +2,13 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import P from 'prop-types';
 // Styles
-import { LABEL } from '../../styles/styles.js';
+import { LABEL } from '../../../styles/styles.js';
 // Constants
-import { COLORS } from '../../constants/colors.js';
+import { COLORS } from '../../../constants/colors.js';
 // Components
-import { ProgressLabel } from '../ProgressLabel/index.jsx';
+import { ProgressDisplay } from '../ProgressDisplay/ProgressDisplay.jsx';
 
-export const CheckButtonSublabel = ({ dimmedStatus, subtext, stepsCompleted, stepsTotal, style }) => {
+export const TaskSublabel = ({ dimmedStatus, subtext, stepsCompleted, stepsTotal, style }) => {
     return (
         <View style={{ ...styles.container, ...style }}>
             {subtext && (
@@ -17,7 +17,7 @@ export const CheckButtonSublabel = ({ dimmedStatus, subtext, stepsCompleted, ste
                 </View>
             )}
             {stepsCompleted && stepsTotal && (
-                <ProgressLabel
+                <ProgressDisplay
                     stepsCompleted={stepsCompleted}
                     stepsTotal={stepsTotal}
                     diameter={14}
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     },
 });
 
-CheckButtonSublabel.propTypes = {
+TaskSublabel.propTypes = {
     dimmedStatus: P.bool,
     subtext: P.string,
     stepsCompleted: P.number,

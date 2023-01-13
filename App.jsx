@@ -4,15 +4,12 @@ import { StyleSheet, Text, View } from 'react-native';
 //Colors
 import { COLORS } from './src/constants/colors.js';
 // Components
-import { LabelledCheckButton } from './src/components/LabelledCheckButton/index.jsx';
-import { CircularProgressChart } from './src/components/CircularProgressChart/index.jsx';
+import { TaskButton } from './src/components/Task/TaskButton.jsx';
 
 export default function App() {
     return (
         <View style={styles.container}>
-            <LabelledCheckButton>
-                Texto testando com um texto muito maior que é para quebrar quando chegar no canto
-            </LabelledCheckButton>
+            <TaskButton>Texto testando com um texto muito maior que é para quebrar quando chegar no canto</TaskButton>
             <StatusBar style="auto" />
         </View>
     );
