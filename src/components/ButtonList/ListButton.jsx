@@ -1,20 +1,22 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableHighlight, TouchableOpacity } from 'react-native';
 import P from 'prop-types';
 // Styles
 import { LABEL } from '../../styles/styles';
 // Constants
 import { COLORS } from '../../constants/colors';
 
-export const ListButton = ({ icon, text, rightContent }) => {
+export const ListButton = ({ text, icon, rightContent, onPress }) => {
     return (
-        <TouchableOpacity style={styles.container}>
-            {icon && <View style={styles.iconContainer}>{icon}</View>}
-            <View style={styles.contentContainer}>
-                <Text style={styles.label}>{text}</Text>
-                <View>{rightContent}</View>
+        <TouchableHighlight onPress={() => onPress?.()} underlayColor={COLORS.systemBackground.tertiary}>
+            <View style={styles.container}>
+                {icon && <View style={styles.iconContainer}>{icon}</View>}
+                <View style={styles.contentContainer}>
+                    <Text style={styles.label}>{text}</Text>
+                    <View>{rightContent}</View>
+                </View>
             </View>
-        </TouchableOpacity>
+        </TouchableHighlight>
     );
 };
 
@@ -23,7 +25,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 48,
         flexDirection: 'row',
-
         alignItems: 'center',
     },
     iconContainer: {
@@ -46,7 +47,8 @@ const styles = StyleSheet.create({
 });
 
 ListButton.propTypes = {
-    icon: P.node,
     text: P.string,
+    icon: P.node,
     rightContent: P.oneOfType([P.string, P.element, P.node]),
+    onPress: P.func,
 };
