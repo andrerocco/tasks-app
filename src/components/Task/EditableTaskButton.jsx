@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 import P from 'prop-types';
 // Styles
 import { LABEL } from '../../styles/styles.js';
@@ -7,10 +7,9 @@ import { LABEL } from '../../styles/styles.js';
 import { COLORS } from '../../constants/colors.js';
 // Components
 import { CheckCircle } from './CheckCircle/CheckCircle';
-import { TaskSublabel } from './TaskSublabel/TaskSublabel';
 import { AutoResizeTextInput } from '../AutoResizeTextInput/AutoResizeTextInput.jsx';
 
-export const TaskButton = ({ children, initalCheckedStatus = false, showBackground = false }) => {
+export const EditableTaskButton = ({ initalCheckedStatus = false }) => {
     const [isChecked, setIsChecked] = useState(initalCheckedStatus);
 
     function handleCheckPress() {
@@ -19,17 +18,13 @@ export const TaskButton = ({ children, initalCheckedStatus = false, showBackgrou
 
     return (
         <View style={styles.container}>
-            <View style={{ ...styles.background, opacity: showBackground ? '1' : '0' }} />
             <View style={styles.contentContainer}>
                 <CheckCircle checkStatus={isChecked} onPress={() => handleCheckPress()} />
                 <View style={styles.textContainer}>
-                    <Text style={isChecked ? styles.label.dimmed : styles.label.default}>{children}</Text>
-                    <TaskSublabel
-                        dimmedStatus={isChecked}
-                        subtext="Sexta, 10/12"
-                        stepsCompleted={1}
-                        stepsTotal={3}
-                        style={{ marginTop: 4 }}
+                    <AutoResizeTextInput
+                        style={styles.label.default}
+                        placeholderTextColor={COLORS.label.secondary}
+                        placeholder={'Digite o texto da tarefa aqui...'}
                     />
                 </View>
             </View>
@@ -47,15 +42,6 @@ const styles = StyleSheet.create({
         paddingRight: 10, // Left padding is set by the Checkmark component
         paddingVertical: 12,
         zIndex: 1,
-    },
-    background: {
-        position: 'absolute',
-        width: '100%',
-        height: '100%',
-        backgroundColor: COLORS.fill.tertiary,
-        borderColor: COLORS.separator.withTransparency,
-        borderWidth: 1,
-        borderRadius: 7,
     },
     textContainer: {
         flex: 1,
@@ -79,7 +65,6 @@ const styles = StyleSheet.create({
     },
 });
 
-TaskButton.propTypes = {
-    children: P.oneOfType([P.string, P.element, P.node]),
-    checkedStatus: P.bool,
+EditableTaskButton.propTypes = {
+    initalCheckedStatus: P.bool,
 };
