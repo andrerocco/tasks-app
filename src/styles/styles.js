@@ -6,7 +6,6 @@ export const LABEL = StyleSheet.create({
             fontSize: 17,
             fontWeight: '400',
             lineHeight: 22,
-            letterSpacing: -0.4,
         },
     },
     bold: {
@@ -24,13 +23,11 @@ export const LABEL = StyleSheet.create({
             fontSize: 13,
             fontWeight: '600',
             lineHeight: 18,
-            letterSpacing: -0.08,
         },
         subheadline: {
             fontSize: 15,
             fontWeight: '400',
             lineHeight: 20,
-            letterSpacing: -0.24,
         },
     },
 });
