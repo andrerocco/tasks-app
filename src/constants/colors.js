@@ -69,4 +69,10 @@ export const COLORS = {
         5: DynamicColorIOS({ light: '#E5E5EA', dark: '#1C1C1E' }),
         6: DynamicColorIOS({ light: '#F2F2F7', dark: '#1C1C1E' }),
     },
+    custom: {
+        screenBackground: DynamicColorIOS({
+            light: '#FFFFFF',
+            dark: '#121214',
+        }),
+    },
 };
