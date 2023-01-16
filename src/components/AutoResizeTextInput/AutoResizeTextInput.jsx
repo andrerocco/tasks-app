@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput } from 'react-native';
+import { TextInput, View } from 'react-native';
 import P, { oneOfType } from 'prop-types';
 
 export const AutoResizeTextInput = ({
@@ -21,7 +21,7 @@ export const AutoResizeTextInput = ({
     return (
         <TextInput
             multiline
-            style={{ width: '100%', paddingTop: 0, height: inputHeight, ...style }}
+            style={{ width: '100%', paddingTop: 0, overflow: 'visible', height: inputHeight, ...style }}
             placeholderTextColor={placeholderTextColor}
             value={value}
             placeholder={placeholder}
