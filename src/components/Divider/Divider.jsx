@@ -10,8 +10,8 @@ export const Divider = ({ strokeWidth = 1, color, leadingInset, trailingInset, s
                 height: strokeWidth,
                 borderRadius: strokeWidth / 2,
                 backgroundColor: color,
-                paddingLeft: leftDistance,
-                paddingRight: rightDistance,
+                paddingLeft: leadingInset,
+                paddingRight: trailingInset,
                 ...style,
             }}
         />
