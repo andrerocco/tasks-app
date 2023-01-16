@@ -29,5 +29,40 @@ export const LABEL = StyleSheet.create({
             fontWeight: '400',
             lineHeight: 20,
         },
+        callout: {
+            fontSize: 16,
+            fontWeight: '600',
+            lineHeight: 21,
+        },
+        body: {
+            fontSize: 17,
+            fontWeight: '600',
+            lineHeight: 22,
+        },
+        headline: {
+            fontSize: 17,
+            fontWeight: '600',
+            lineHeight: 22,
+        },
+        title3: {
+            fontSize: 20,
+            fontWeight: '600',
+            lineHeight: 24,
+        },
+        title2: {
+            fontSize: 22,
+            fontWeight: '700',
+            lineHeight: 28,
+        },
+        title1: {
+            fontSize: 28,
+            fontWeight: '700',
+            lineHeight: 33,
+        },
+        largeTitle: {
+            fontSize: 34,
+            fontWeight: '700',
+            lineHeight: 41,
+        },
     },
 });

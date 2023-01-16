@@ -1,6 +1,52 @@
 import { DynamicColorIOS } from 'react-native';
 
 export const COLORS = {
+    default: {
+        systemRed: DynamicColorIOS({
+            light: '#FF3B30',
+            dark: '#FF453A',
+        }),
+        systemOrange: DynamicColorIOS({
+            light: '#FF9500',
+            dark: '#FF9F0A',
+        }),
+        systemYellow: DynamicColorIOS({
+            light: '#FFCC00',
+            dark: '#FFD60A',
+        }),
+        systemGreen: DynamicColorIOS({
+            light: '#34C759',
+            dark: '#32D74B', // TODO - Conferir
+        }),
+        systemTeal: DynamicColorIOS({
+            light: '#5AC8FA',
+            dark: '#64D2FF',
+        }),
+        systemBlue: DynamicColorIOS({
+            light: '#007AFF',
+            dark: '#0A84FF',
+        }),
+        systemIndigo: DynamicColorIOS({
+            light: '#5856D6',
+            dark: '#5E5CE6',
+        }),
+        systemPurple: DynamicColorIOS({
+            light: '#AF52DE',
+            dark: '#BF5AF2',
+        }),
+        systemPink: DynamicColorIOS({
+            light: '#FF2D55',
+            dark: '#FF2D55',
+        }),
+        systemGray: {
+            1: DynamicColorIOS({ light: '#8E8E93', dark: '#8E8E93' }),
+            2: DynamicColorIOS({ light: '#AEAEB2', dark: '#636366' }),
+            3: DynamicColorIOS({ light: '#C7C7CC', dark: '#48484A' }),
+            4: DynamicColorIOS({ light: '#D1D1D6', dark: '#3A3A3C' }),
+            5: DynamicColorIOS({ light: '#E5E5EA', dark: '#1C1C1E' }),
+            6: DynamicColorIOS({ light: '#F2F2F7', dark: '#1C1C1E' }),
+        },
+    },
     systemBackground: {
         primary: DynamicColorIOS({
             light: '#FFFFFF',
@@ -60,14 +106,6 @@ export const COLORS = {
             light: 'rgba(60, 60, 67, 0.36)',
             dark: 'rgba(84, 84, 84, 0.88)',
         }),
-    },
-    systemGray: {
-        1: DynamicColorIOS({ light: '#8E8E93', dark: '#8E8E93' }),
-        2: DynamicColorIOS({ light: '#AEAEB2', dark: '#636366' }),
-        3: DynamicColorIOS({ light: '#C7C7CC', dark: '#48484A' }),
-        4: DynamicColorIOS({ light: '#D1D1D6', dark: '#3A3A3C' }),
-        5: DynamicColorIOS({ light: '#E5E5EA', dark: '#1C1C1E' }),
-        6: DynamicColorIOS({ light: '#F2F2F7', dark: '#1C1C1E' }),
     },
     custom: {
         screenBackground: DynamicColorIOS({

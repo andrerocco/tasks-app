@@ -22,7 +22,7 @@ export const TaskSublabel = ({ dimmedStatus, subtext, stepsCompleted, stepsTotal
                     stepsTotal={stepsTotal}
                     diameter={14}
                     strokeWidth={2.5}
-                    emptyColor={COLORS.systemGray[4]}
+                    emptyColor={COLORS.default.systemGray[4]}
                     progressColor={COLORS.label.secondary}
                     gap={8}
                     textStyle={dimmedStatus ? styles.label.dimmed : styles.label.default}
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         },
         dimmed: {
             ...LABEL.bold.footnote,
-            color: COLORS.systemGray[2],
+            color: COLORS.default.systemGray[2],
         },
     },
 });
