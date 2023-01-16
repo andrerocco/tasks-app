@@ -7,6 +7,7 @@ import { COLORS } from '../constants/colors';
 // Components
 import { BackButton } from '../components/BackButton/BackButton';
 import { EditableTaskButton } from '../components/Task/EditableTaskButton';
+import { Divider } from '../components/Divider/Divider';
 
 export const TaskCreationScreen = ({ navigation }) => {
     const insets = useSafeAreaInsets();
@@ -21,6 +22,7 @@ export const TaskCreationScreen = ({ navigation }) => {
             />
             <View style={styles.contentContainer}>
                 <EditableTaskButton />
+                <Divider color={COLORS.separator.withTransparency} />
             </View>
         </View>
     );

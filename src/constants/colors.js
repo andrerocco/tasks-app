@@ -53,12 +53,12 @@ export const COLORS = {
     },
     separator: {
         noTransparency: DynamicColorIOS({
-            light: '#C6C6C8',
+            light: '#E5E5EA',
             dark: '#38383A',
         }),
         withTransparency: DynamicColorIOS({
             light: 'rgba(60, 60, 67, 0.36)',
-            dark: 'rgba(235, 235, 245, 0.65)',
+            dark: 'rgba(84, 84, 84, 0.88)',
         }),
     },
     systemGray: {
