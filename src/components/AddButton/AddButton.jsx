@@ -21,6 +21,7 @@ export const AddButton = ({ color, text, iconType = 'round', style, onPress }) =
 
 const styles = StyleSheet.create({
     container: {
+        flex: 0,
         flexDirection: 'row',
         alignItems: 'center',
     },
