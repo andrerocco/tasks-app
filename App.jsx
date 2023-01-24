@@ -7,7 +7,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 // Screens
 import { TaskOptionsScreen } from './src/screens/TaskOptionsScreen.jsx';
-import { HomeScreen } from './src/screens/HomeScreen.jsx';
 import { TasksScreen } from './src/screens/TasksScreen.jsx';
 import { COLORS } from './src/constants/colors.js';
 
