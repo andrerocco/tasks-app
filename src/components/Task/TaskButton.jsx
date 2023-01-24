@@ -8,7 +8,6 @@ import { COLORS } from '../../constants/colors.js';
 // Components
 import { CheckCircle } from './CheckCircle/CheckCircle';
 import { TaskSublabel } from './TaskSublabel/TaskSublabel';
-import { AutoResizeTextInput } from '../AutoResizeTextInput/AutoResizeTextInput.jsx';
 
 export const TaskButton = ({ children, initalCheckedStatus = false, showBackground = false }) => {
     const [isChecked, setIsChecked] = useState(initalCheckedStatus);
@@ -52,7 +51,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: '100%',
         height: '100%',
-        backgroundColor: COLORS.fill.tertiary,
+        backgroundColor: COLORS.fill.quaternary,
         borderColor: COLORS.separator.withTransparency,
         borderWidth: 1,
         borderRadius: 7,
@@ -73,7 +72,7 @@ const styles = StyleSheet.create({
         dimmed: {
             width: '100%',
             flexWrap: 'wrap',
-            color: COLORS.systemGray[1],
+            color: COLORS.default.systemGray[1],
             ...LABEL.regular.body,
         },
     },

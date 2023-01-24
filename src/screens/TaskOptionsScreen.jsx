@@ -8,8 +8,9 @@ import { COLORS } from '../constants/colors';
 import { BackButton } from '../components/BackButton/BackButton';
 import { EditableTaskButton } from '../components/Task/EditableTaskButton';
 import { Divider } from '../components/Divider/Divider';
+import { AddButton } from '../components/AddButton/AddButton';
 
-export const TaskCreationScreen = ({ navigation }) => {
+export const TaskOptionsScreen = ({ navigation }) => {
     const insets = useSafeAreaInsets();
     const verticalPaddings = { paddingTop: insets.top, paddingBottom: insets.bottom };
 
@@ -21,8 +22,14 @@ export const TaskCreationScreen = ({ navigation }) => {
                 onPress={() => (navigation.canGoBack() ? navigation.goBack() : undefined)}
             />
             <View style={styles.contentContainer}>
-                <EditableTaskButton />
-                <Divider color={COLORS.separator.withTransparency} />
+                <EditableTaskButton placeholder={'Digite o texto da tarefa aqui...'} />
+                <Divider color={COLORS.separator.withTransparency} style={{ marginTop: 4, marginBottom: 4 }} />
+                <View>
+                    <EditableTaskButton />
+                    <EditableTaskButton />
+                    <EditableTaskButton />
+                    <AddButton iconType={'squared'} text={'Adicionar etapa...'} color={COLORS.default.systemGreen} />
+                </View>
             </View>
         </View>
     );
