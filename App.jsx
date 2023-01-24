@@ -6,8 +6,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 // Safe Area
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 // Screens
-import { TaskCreationScreen } from './src/screens/TaskCreationScreen.jsx';
+import { TaskOptionsScreen } from './src/screens/TaskOptionsScreen.jsx';
 import { HomeScreen } from './src/screens/HomeScreen.jsx';
+import { TasksScreen } from './src/screens/TasksScreen.jsx';
+import { COLORS } from './src/constants/colors.js';
 
 const Stack = createStackNavigator();
 
@@ -15,9 +17,15 @@ export default function App() {
     return (
         <SafeAreaProvider>
             <NavigationContainer>
-                <Stack.Navigator initialRouteName="TaskCreationScreen" screenOptions={{ headerShown: false }}>
-                    <Stack.Screen name="Home" component={HomeScreen} />
-                    <Stack.Screen name="TaskCreation" component={TaskCreationScreen} />
+                <Stack.Navigator
+                    initialRouteName="Tasks"
+                    screenOptions={{
+                        headerShown: false,
+                        cardStyle: { backgroundColor: COLORS.systemBackground.primary },
+                    }}
+                >
+                    <Stack.Screen name="Tasks" component={TasksScreen} />
+                    <Stack.Screen name="TaskOptions" component={TaskOptionsScreen} />
                 </Stack.Navigator>
             </NavigationContainer>
         </SafeAreaProvider>
