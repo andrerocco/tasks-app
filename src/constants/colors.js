@@ -108,6 +108,10 @@ export const COLORS = {
         }),
     },
     custom: {
+        cardBackground: DynamicColorIOS({
+            light: 'rgba(255, 255, 255, 0.7)',
+            dark: 'rgba(26, 26, 28, 0.7)',
+        }),
         screenBackground: DynamicColorIOS({
             light: '#FFFFFF',
             dark: '#121214',
