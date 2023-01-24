@@ -4,4 +4,5 @@
 -   [ ] Fazer a barra de navegação do aplicativo e a caixa de digitação do texto
 -   [ ] Definir o funcionamento da caixa de digitação do texto relativo a quando ela será ativada e que informações ela
         irá carregar com a ativação
--   [ ] Generalizar o componente de TaskButton com uma prop de task
+-   [ ] Generalizar o componente de TaskButton com uma prop de _task_
+-   [ ] Fazer um design para as opções rápidas da caixa de digitação do texto
