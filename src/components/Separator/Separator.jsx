@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import P from 'prop-types';
 
-export const Divider = ({ strokeWidth = 1, color, leadingInset, trailingInset, style }) => {
+export const Separator = ({ strokeWidth = 1, color, leadingInset, trailingInset, style }) => {
     return (
         <View
             style={{
@@ -18,7 +18,7 @@ export const Divider = ({ strokeWidth = 1, color, leadingInset, trailingInset, s
     );
 };
 
-Divider.propTypes = {
+Separator.propTypes = {
     strokeWidth: P.number,
     color: P.oneOfType([P.string, P.object]),
     leadingInset: P.number,

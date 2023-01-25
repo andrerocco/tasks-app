@@ -7,7 +7,7 @@ import { COLORS } from '../constants/colors';
 // Components
 import { BackButton } from '../components/BackButton/BackButton';
 import { EditableTaskButton } from '../components/Task/EditableTaskButton';
-import { Divider } from '../components/Divider/Divider';
+import { Separator } from '../components/Separator/Separator';
 import { AddButton } from '../components/AddButton/AddButton';
 
 export const TaskOptionsScreen = ({ navigation }) => {
@@ -23,7 +23,7 @@ export const TaskOptionsScreen = ({ navigation }) => {
             />
             <View style={styles.contentContainer}>
                 <EditableTaskButton placeholder={'Digite o texto da tarefa aqui...'} />
-                <Divider color={COLORS.separator.withTransparency} style={{ marginTop: 4, marginBottom: 4 }} />
+                <Separator color={COLORS.separator.withTransparency} style={{ marginTop: 4, marginBottom: 4 }} />
                 <View>
                     <EditableTaskButton />
                     <EditableTaskButton />
