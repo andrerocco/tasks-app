@@ -10,7 +10,12 @@ import AddRectangularIcon from '../../assets/icons/AddRectangular';
 
 export const AddButton = ({ color, text, iconType = 'round', style, onPress }) => {
     return (
-        <TouchableOpacity style={{ ...styles.container, ...style }} activeOpacity={0.4} onPress={() => onPress?.()}>
+        <TouchableOpacity
+            style={{ ...styles.container, ...style }}
+            activeOpacity={0.4}
+            onPress={() => onPress?.()}
+            hitSlop={{ top: 4, bottom: 4, left: 4, right: 4 }}
+        >
             {iconType === 'round' && <AddRoundIcon color={color} />}
             {iconType === 'squared' && <AddSquaredIcon color={color} />}
             {iconType === 'rectangular' && <AddRectangularIcon color={color} />}
@@ -24,6 +29,7 @@ const styles = StyleSheet.create({
         flex: 0,
         flexDirection: 'row',
         alignItems: 'center',
+        padding: 4,
     },
     label: (color) => ({
         color: color,
