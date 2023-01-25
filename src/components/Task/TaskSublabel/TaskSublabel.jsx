@@ -8,7 +8,7 @@ import { COLORS } from '../../../constants/colors.js';
 // Components
 import { ProgressDisplay } from '../ProgressDisplay/ProgressDisplay.jsx';
 
-export const TaskSublabel = ({ dimmedStatus, subtext, stepsCompleted, stepsTotal, style }) => {
+export const TaskSublabel = ({ dimmedStatus, subtext, progress, style }) => {
     return (
         <View style={{ ...styles.container, ...style }}>
             {subtext && (
@@ -16,9 +16,9 @@ export const TaskSublabel = ({ dimmedStatus, subtext, stepsCompleted, stepsTotal
                     <Text style={dimmedStatus ? styles.label.dimmed : styles.label.default}>{subtext}</Text>
                 </View>
             )}
-            {stepsCompleted && stepsTotal && (
+            {typeof progress === 'number' && (
                 <ProgressDisplay
-                    progress={stepsCompleted / stepsTotal}
+                    progress={progress}
                     diameter={14}
                     strokeWidth={2.5}
                     emptyColor={COLORS.default.systemGray[4]}
@@ -55,7 +55,13 @@ const styles = StyleSheet.create({
 TaskSublabel.propTypes = {
     dimmedStatus: P.bool,
     subtext: P.string,
-    stepsCompleted: P.number,
-    stepsTotal: P.number,
+    progress: function (props, propName, componentName) {
+        const prop = props[propName];
+        if (!(prop === undefined || prop === null || prop === 'none') && (prop < 0 || prop > 1)) {
+            return new Error(
+                `Invalid prop \`${propName}\` supplied to \`${componentName}\`. Expected a number between 0 and 1, undefined, null or 'none'.`,
+            );
+        }
+    },
     style: P.object,
 };
