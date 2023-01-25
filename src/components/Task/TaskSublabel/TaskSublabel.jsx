@@ -18,8 +18,7 @@ export const TaskSublabel = ({ dimmedStatus, subtext, stepsCompleted, stepsTotal
             )}
             {stepsCompleted && stepsTotal && (
                 <ProgressDisplay
-                    stepsCompleted={stepsCompleted}
-                    stepsTotal={stepsTotal}
+                    progress={stepsCompleted / stepsTotal}
                     diameter={14}
                     strokeWidth={2.5}
                     emptyColor={COLORS.default.systemGray[4]}

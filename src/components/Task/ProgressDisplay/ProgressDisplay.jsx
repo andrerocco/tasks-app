@@ -4,28 +4,19 @@ import P from 'prop-types';
 // Components
 import { CircularProgressChart } from '../../CircularProgressChart/CircularProgressChart.jsx';
 
-export const ProgressDisplay = ({
-    stepsCompleted,
-    stepsTotal,
-    diameter,
-    strokeWidth,
-    emptyColor,
-    progressColor,
-    textStyle,
-    gap,
-}) => {
+export const ProgressDisplay = ({ progress, diameter, strokeWidth, emptyColor, progressColor, textStyle, gap }) => {
     return (
         <View style={styles.container}>
             <View style={{ marginRight: gap }}>
                 <CircularProgressChart
-                    progress={stepsCompleted / stepsTotal}
+                    progress={progress}
                     diameter={diameter}
                     strokeWidth={strokeWidth}
                     emptyColor={emptyColor}
                     progressColor={progressColor}
                 />
             </View>
-            <Text style={textStyle}>{parseInt((stepsCompleted / stepsTotal) * 100)}%</Text>
+            <Text style={textStyle}>{parseInt(progress * 100)}%</Text>
         </View>
     );
 };
@@ -41,8 +32,13 @@ const styles = StyleSheet.create({
 });
 
 ProgressDisplay.propTypes = {
-    stepsCompleted: P.number.isRequired,
-    stepsTotal: P.number.isRequired,
+    progress: function (props, propName, componentName) {
+        if (props[propName] < 0 || props[propName] > 1) {
+            return new Error(
+                `Invalid prop \`${propName}\` supplied to \`${componentName}\`. Expected a number between 0 and 1.`,
+            );
+        }
+    },
     diameter: P.number.isRequired,
     strokeWidth: P.number.isRequired,
     emptyColor: P.oneOfType([P.string, P.object]),
