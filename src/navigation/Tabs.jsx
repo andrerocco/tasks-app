@@ -6,7 +6,7 @@ import { COLORS } from '../constants/colors';
 import { BlurTabBar } from './BlurTabBar';
 // Tabs
 import { TasksStack } from './stacks/TasksStack';
-import { HomeScreen } from '../screens/HomeScreen';
+import { HorizontalCardScroll } from '../screens/HorizontalCardScroll';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +26,7 @@ const Tabs = () => {
             }}
         >
             <Tab.Screen name="TasksTab" component={TasksStack} />
-            <Tab.Screen name="HomeTab" component={HomeScreen} options={{ unmountOnBlur: true }} />
+            <Tab.Screen name="Test" component={HorizontalCardScroll} />
         </Tab.Navigator>
     );
 };
