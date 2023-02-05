@@ -49,16 +49,20 @@ export const COLORS = {
     },
     systemBackground: {
         primary: DynamicColorIOS({
-            light: '#FFFFFF',
+            light: '#F9F9F9',
             dark: '#000000',
         }),
         secondary: DynamicColorIOS({
-            light: '#F2F2F7',
+            light: '#FFFFFF',
             dark: '#1C1C1E',
         }),
         tertiary: DynamicColorIOS({
-            light: '#E5E5EA',
+            light: '#EFEFF4',
             dark: '#2C2C2E',
+        }),
+        alert: DynamicColorIOS({
+            light: 'rgba(242, 242, 242, 0.8)',
+            dark: 'rgba(30, 30, 30, 0.75)',
         }),
     },
     fill: {

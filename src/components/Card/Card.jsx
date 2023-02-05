@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 4,
         borderRadius: 9,
         borderWidth: 1,
-        borderColor: COLORS.separator.withTransparency,
+        borderColor: COLORS.separator.noTransparency,
         backgroundColor: COLORS.custom.cardBackground,
     },
 });
