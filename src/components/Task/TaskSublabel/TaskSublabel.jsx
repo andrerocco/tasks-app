@@ -21,8 +21,8 @@ export const TaskSublabel = ({ dimmedStatus, subtext, progress, style }) => {
                     progress={progress}
                     diameter={14}
                     strokeWidth={2.5}
-                    emptyColor={COLORS.default.systemGray[4]}
-                    progressColor={COLORS.label.secondary}
+                    emptyColor={COLORS.label.quaternary}
+                    progressColor={COLORS.label.tertiary}
                     gap={8}
                     textStyle={dimmedStatus ? styles.label.dimmed : styles.label.default}
                 />
