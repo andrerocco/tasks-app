@@ -75,7 +75,7 @@ export const COLORS = {
             dark: 'rgba(118, 118, 128, 0.24)',
         }),
         quaternary: DynamicColorIOS({
-            light: 'rgba(116, 116, 128, 0.8)',
+            light: 'rgba(116, 116, 128, 0.08)',
             dark: 'rgba(116, 116, 128, 0.18)',
         }),
     },
