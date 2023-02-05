@@ -43,7 +43,7 @@ export const TaskButton = ({ task, showBackground = false }) => {
         <View style={styles.container}>
             <View style={{ ...styles.background, opacity: showBackground ? '1' : '0' }} />
             <View style={styles.contentContainer}>
-                <CheckCircle checkStatus={isChecked} onPress={() => handleCheckPress()} />
+                <CheckCircle style={styles.checkCircle} checkStatus={isChecked} onPress={() => handleCheckPress()} />
                 <View style={styles.textContainer}>
                     <Text style={isChecked ? styles.label.dimmed : styles.label.default}>{task.text}</Text>
                     {(task.date_deadline || task.subtasks) && (
@@ -77,8 +77,11 @@ const styles = StyleSheet.create({
         height: '100%',
         backgroundColor: COLORS.fill.quaternary,
         borderColor: COLORS.separator.withTransparency,
-        borderWidth: 1,
+        borderWidth: 0.5,
         borderRadius: 7,
+    },
+    checkCircle: {
+        paddingHorizontal: 12,
     },
     textContainer: {
         flex: 1,
@@ -115,6 +118,6 @@ TaskButton.propTypes = {
                 text: P.string,
             }),
         ),
-    }),
+    }).isRequired,
     showBackground: P.bool,
 };
