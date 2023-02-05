@@ -19,7 +19,7 @@ export const EditableTaskButton = ({ initalCheckedStatus = false, placeholder, s
     return (
         <View style={styles.container}>
             <View style={{ ...styles.contentContainer, ...style }}>
-                <CheckCircle checkStatus={isChecked} onPress={() => handleCheckPress()} />
+                <CheckCircle style={styles.checkCircle} checkStatus={isChecked} onPress={() => handleCheckPress()} />
                 <View style={styles.textContainer}>
                     <AutoResizeTextInput
                         style={{ ...styles.label.default }}
@@ -41,6 +41,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingRight: 10, // Left padding is set by the Checkmark component
         zIndex: 1,
+    },
+    checkCircle: {
+        paddingHorizontal: 12,
+        paddingVertical: 12,
     },
     textContainer: {
         flex: 1,
