@@ -7,7 +7,7 @@ import CheckmarkIcon from '../../../assets/icons/Checkmark';
 // Constants
 import { COLORS } from '../../../constants/colors';
 
-export const CheckCircle = ({ checkStatus, onPress }) => {
+export const CheckCircle = ({ checkStatus, onPress, ...props }) => {
     function handlePress() {
         /* Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); */
         Haptics.selectionAsync(); // Haptic feedback
@@ -15,7 +15,7 @@ export const CheckCircle = ({ checkStatus, onPress }) => {
     }
 
     return (
-        <View style={styles.container}>
+        <View {...props}>
             <TouchableOpacity onPress={() => handlePress()} hitSlop={{ top: 12, bottom: 12, left: 12, right: 12 }}>
                 {checkStatus && <CheckmarkIcon color={COLORS.label.secondary} />}
                 {!checkStatus && <View style={styles.circleBorder} />}
@@ -25,9 +25,6 @@ export const CheckCircle = ({ checkStatus, onPress }) => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-        padding: 12,
-    },
     circleBorder: {
         width: 24,
         height: 24,
