@@ -6,15 +6,15 @@ import { LABEL } from '../../styles/styles.js';
 // Constants
 import { COLORS } from '../../constants/colors';
 
-export const CardTitle = ({ title, day, month }) => {
+export const CardTitle = ({ title, day, month, highlight = false, style }) => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>{title}</Text>
+        <View style={[styles.container, style]}>
+            <Text style={highlight ? styles.title.highlight : styles.title.default}>{title}</Text>
             {day && month && (
                 <Text style={styles.dateLabel}>
-                    {day}
+                    {String(day).padStart(2, '0')}
                     {'\n'}
-                    {month}
+                    {String(month).padStart(2, '0')}
                 </Text>
             )}
         </View>
@@ -29,9 +29,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {
-        ...LABEL.bold.largeTitle,
-        color: COLORS.label.primary,
-        transform: [{ translateY: -4 }],
+        default: {
+            ...LABEL.bold.largeTitle,
+            color: COLORS.label.primary,
+            transform: [{ translateY: -4 }],
+        },
+        highlight: {
+            ...LABEL.bold.largeTitle,
+            color: COLORS.default.systemGreen,
+            transform: [{ translateY: -4 }],
+        },
     },
     dateLabel: {
         fontSize: 14,
@@ -44,6 +51,20 @@ const styles = StyleSheet.create({
 
 CardTitle.propTypes = {
     title: P.string.isRequired,
-    day: P.string,
-    month: P.string,
+    // Day should be a number beetwen 1 and 31
+    day: function (props, propName, componentName) {
+        if (props[propName] && (typeof props[propName] !== 'number' || props[propName] < 1 || props[propName] > 31)) {
+            return new Error(
+                `Invalid prop \`${propName}\` supplied to \`${componentName}\`. Prop should be a number between 1 and 31.`,
+            );
+        }
+    },
+    month: function (props, propName, componentName) {
+        if (props[propName] && (typeof props[propName] !== 'number' || props[propName] < 1 || props[propName] > 12)) {
+            return new Error(
+                `Invalid prop \`${propName}\` supplied to \`${componentName}\`. Prop should be a number between 1 and 12.`,
+            );
+        }
+    },
+    style: P.object,
 };
