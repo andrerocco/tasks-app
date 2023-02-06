@@ -6,3 +6,4 @@
         irá carregar com a ativação
 -   [ ] Generalizar o componente de TaskButton com uma prop de _task_
 -   [ ] Fazer um design para as opções rápidas da caixa de digitação do texto
+-   [ ] Adicionar useRef nos inputs de texto para evitar re-renderização desnecessária
