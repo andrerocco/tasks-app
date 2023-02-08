@@ -9,6 +9,8 @@ export const AutoResizeTextInput = ({
     placeholder,
     autoCorrect = false,
     returnKeyType = 'done',
+    onFocus,
+    onBlur,
     onChangeText,
     onEndEditing,
 }) => {
@@ -21,13 +23,15 @@ export const AutoResizeTextInput = ({
     return (
         <TextInput
             multiline
-            style={{ width: '100%', paddingTop: 0, overflow: 'visible', height: inputHeight, ...style }}
+            style={{ flex: 1, paddingTop: 0, overflow: 'visible', height: inputHeight, ...style }}
             placeholderTextColor={placeholderTextColor}
             value={value}
             placeholder={placeholder}
             autoCorrect={autoCorrect}
             returnKeyType={returnKeyType}
             blurOnSubmit={true}
+            onFocus={(e) => onFocus?.(e)}
+            onBlur={(e) => onBlur?.(e)}
             onChangeText={(e) => onChangeText?.(e)}
             onEndEditing={(e) => onEndEditing?.(e)}
             onContentSizeChange={(e) => handleContentSizeChange(e)}
