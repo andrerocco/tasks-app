@@ -1,28 +1,51 @@
-import React from 'react';
-import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import React, { useRef, useState, useEffect } from 'react';
+import { View, StyleSheet, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import P from 'prop-types';
 // Constants
 import { COLORS } from '../../constants/colors';
 import { LABEL } from '../../styles/styles';
 // Components
 import { AutoResizeTextInput } from '../AutoResizeTextInput/AutoResizeTextInput';
-import { BlurView } from 'expo-blur';
+import { TintedBlurView } from '../TintedBlurView/TintedBlurView';
+import { SendButton } from '../SendButton/SendButton';
 
-export const BottomKeyboardInput = ({ marginBottom = 0, placeholder }) => {
+export const BottomKeyboardInput = ({ placeholder, marginBottom = 0, hidden = false, onSend }) => {
+    const [input, setInput] = useState('');
+    const [sendActive, setSendActive] = useState(false); // The send button will only be active if the input is not empty/blank
+
+    useEffect(() => {
+        if (input.trim() === '') {
+            setSendActive(false);
+        } else if (!sendActive) {
+            setSendActive(true);
+        }
+    }, [input]);
+
+    function handleSend() {
+        if (input.trim() !== '') {
+            onSend?.(input);
+            setInput('');
+            setSendActive(false);
+        }
+    }
+
     return (
         <KeyboardAvoidingView style={{ ...styles.footer, marginBottom: marginBottom }} behavior={'padding'}>
-            <BlurView style={styles.container} tint={'default'} intensity={48}>
-                <View style={styles.inputContainer}>
-                    <AutoResizeTextInput
-                        placeholder={placeholder}
-                        style={styles.input}
-                        placeholderTextColor={COLORS.label.secondary}
-                        returnKeyType={'enter'}
-                        onFocus={() => console.log('focus')}
-                        onBlur={() => console.log('blur')}
-                    />
-                </View>
-            </BlurView>
+            {!hidden && (
+                <TintedBlurView style={styles.container}>
+                    <View style={styles.inputContainer}>
+                        <AutoResizeTextInput
+                            value={input}
+                            placeholder={placeholder}
+                            style={styles.input}
+                            placeholderTextColor={COLORS.label.secondary}
+                            returnKeyType={'enter'}
+                            onChangeText={(text) => setInput(text)}
+                        />
+                        {sendActive && <SendButton onPress={() => handleSend()} style={{ marginLeft: 9 }} />}
+                    </View>
+                </TintedBlurView>
+            )}
         </KeyboardAvoidingView>
     );
 };
@@ -41,12 +64,17 @@ const styles = StyleSheet.create({
         paddingVertical: 8,
     },
     inputContainer: {
-        paddingVertical: 7,
-        paddingHorizontal: 9,
+        width: '100%',
+        paddingVertical: 6,
+        paddingHorizontal: 8,
         backgroundColor: COLORS.fill.tertiary,
         borderRadius: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
     input: {
+        paddingLeft: 2,
         flexWrap: 'wrap',
         color: COLORS.label.primary,
         ...LABEL.regular.body,
@@ -54,5 +82,8 @@ const styles = StyleSheet.create({
 });
 
 BottomKeyboardInput.propTypes = {
+    placeholder: P.string,
     marginBottom: P.number,
+    hidden: P.bool,
+    onSend: P.func,
 };

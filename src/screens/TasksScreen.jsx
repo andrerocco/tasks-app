@@ -10,7 +10,6 @@ import { CardTitle } from '../components/CardTitle/CardTitle';
 import { TaskButton } from '../components/Task/TaskButton';
 import { AddButton } from '../components/AddButton/AddButton';
 import { TaskList } from '../components/Task/TaskList';
-import { AutoResizeTextInput } from '../components/AutoResizeTextInput/AutoResizeTextInput';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { BottomKeyboardInput } from '../components/BottomKeyboardInput/BottomKeyboardInput';
 
