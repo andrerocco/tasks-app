@@ -12,7 +12,7 @@ export const AutoResizeTextInput = ({
     onFocus,
     onBlur,
     onChangeText,
-    onEndEditing,
+    onSubmitEditing,
 }) => {
     const [inputHeight, setInputHeight] = useState();
 
@@ -33,7 +33,7 @@ export const AutoResizeTextInput = ({
             onFocus={(e) => onFocus?.(e)}
             onBlur={(e) => onBlur?.(e)}
             onChangeText={(e) => onChangeText?.(e)}
-            onEndEditing={(e) => onEndEditing?.(e)}
+            onSubmitEditing={(e) => onSubmitEditing?.(e)}
             onContentSizeChange={(e) => handleContentSizeChange(e)}
         />
     );
@@ -46,6 +46,8 @@ AutoResizeTextInput.propTypes = {
     value: P.string,
     autoCorrect: P.bool,
     returnKeyType: P.string,
+    onFocus: P.func,
+    onBlur: P.func,
     onChangeText: P.func,
-    onEndEditing: P.func,
+    onSubmitEditing: P.func,
 };
