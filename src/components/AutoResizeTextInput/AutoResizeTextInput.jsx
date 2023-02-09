@@ -7,7 +7,8 @@ export const AutoResizeTextInput = ({
     placeholderTextColor,
     value,
     placeholder,
-    autoCorrect = false,
+    autoCorrect = true,
+    spellCheck = false,
     returnKeyType = 'done',
     onFocus,
     onBlur,
@@ -28,6 +29,7 @@ export const AutoResizeTextInput = ({
             value={value}
             placeholder={placeholder}
             autoCorrect={autoCorrect}
+            spellCheck={spellCheck}
             returnKeyType={returnKeyType}
             blurOnSubmit={true}
             onFocus={(e) => onFocus?.(e)}
