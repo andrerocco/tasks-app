@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { TextInput, View } from 'react-native';
+import { TextInput } from 'react-native';
 import P, { oneOfType } from 'prop-types';
+
+// This component sets up the TextInput component that automatically resizes the input to fit the text
+
+// USAGE:
+// To avoid the component from re-rendering every time the text changes, use the useRef hook to store the input instead of useState.
+// You can clear the input by setting a ref to the innerRef prop and calling the yourInnerRefName.current.clear() method on it.
 
 export const AutoResizeTextInput = ({
     innerRef,
