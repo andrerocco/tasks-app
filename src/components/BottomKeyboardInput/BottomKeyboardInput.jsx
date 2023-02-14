@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         borderTopWidth: 0.33,
     },
     container: {
-        paddingHorizontal: 8,
+        paddingHorizontal: 10,
         paddingVertical: 8,
     },
     inputContainer: {
