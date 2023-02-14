@@ -3,6 +3,7 @@ import { TextInput, View } from 'react-native';
 import P, { oneOfType } from 'prop-types';
 
 export const AutoResizeTextInput = ({
+    innerRef,
     style,
     placeholderTextColor,
     value,
@@ -23,6 +24,7 @@ export const AutoResizeTextInput = ({
 
     return (
         <TextInput
+            ref={innerRef}
             multiline
             style={{ flex: 1, paddingTop: 0, overflow: 'visible', height: inputHeight, ...style }}
             placeholderTextColor={placeholderTextColor}

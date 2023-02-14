@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { View, StyleSheet, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import P from 'prop-types';
 // Constants
 import { COLORS } from '../../constants/colors';
@@ -10,22 +10,20 @@ import { TintedBlurView } from '../TintedBlurView/TintedBlurView';
 import { SendButton } from '../SendButton/SendButton';
 
 export const BottomKeyboardInput = ({ placeholder, marginBottom = 0, hidden = false, onSend }) => {
-    const [input, setInput] = useState('');
+    const input = useRef('');
+    const textInputRef = useRef();
     const [sendActive, setSendActive] = useState(false); // The send button will only be active if the input is not empty/blank
 
-    useEffect(() => {
-        if (input.trim() === '') {
-            setSendActive(false);
-        } else if (!sendActive) {
-            setSendActive(true);
-        }
-    }, [input]);
+    function handleChangeText(e) {
+        input.current = e;
+        setSendActive(e.trim() !== '');
+    }
 
     function handleSend() {
-        if (input.trim() !== '') {
-            onSend?.(input);
-            setInput('');
-            setSendActive(false);
+        if (input.current.trim() !== '') {
+            onSend?.(input.current); // Call the onSend function if it exists
+            textInputRef.current.clear(); // Clear the input
+            setSendActive(false); // Disable the send button
         }
     }
 
@@ -35,12 +33,12 @@ export const BottomKeyboardInput = ({ placeholder, marginBottom = 0, hidden = fa
                 <TintedBlurView style={styles.container}>
                     <View style={styles.inputContainer}>
                         <AutoResizeTextInput
-                            value={input}
+                            innerRef={textInputRef}
                             placeholder={placeholder}
                             style={styles.input}
                             placeholderTextColor={COLORS.label.secondary}
                             returnKeyType={'enter'}
-                            onChangeText={(text) => setInput(text)}
+                            onChangeText={(e) => handleChangeText(e)}
                         />
                         {sendActive && <SendButton onPress={() => handleSend()} style={{ marginLeft: 9 }} />}
                     </View>
